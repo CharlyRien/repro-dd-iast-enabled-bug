@@ -1,6 +1,17 @@
-Command to start the spring boot web server containing the problem:
+### Create the jar with the bootJar task:
 
-DD_IAST_ENABLED=true java -jar -javaagent:/link-to-the-dd-agent/dd-java-agent-1.30.1.jar /link-to-the-bootJar-file/repro-dd-iast-bug-1.0-SNAPSHOT.jar
+```
+./gradlew bootJar
+```
+
+### Download the latest dd-java-agent (the 1.30.1 at the time of the writing of this repo) here:
+https://github.com/DataDog/dd-trace-java/releases/download/v1.30.1/dd-java-agent-1.30.1.jar
+
+### Command to start the spring boot web server containing the problem:
+
+```DD_IAST_ENABLED=true java -jar -javaagent:/link-to-the-dd-agent/dd-java-agent-1.30.1.jar /link-to-the-bootJar-file/repro-dd-iast-bug-1.0-SNAPSHOT.jar```
+
+### The bug
 
 After starting the server, an endpoint is accessible reproducing the bug when IAST is enabled. 
 
